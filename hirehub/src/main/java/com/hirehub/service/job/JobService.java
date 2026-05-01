@@ -57,4 +57,8 @@ public class JobService {
         return jobRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Job not found"));
     }
+
+    public List<Job> getAllJobs() {
+        return jobRepository.findAll();
+    }
 }

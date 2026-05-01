@@ -21,8 +21,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleGeneralException(Exception ex) {
 
+        ex.printStackTrace(); // 👈 VERY IMPORTANT for debugging
+
         Map<String, String> error = new HashMap<>();
-        error.put("error", "Something went wrong");
+        error.put("error", ex.getMessage());
+        error.put("exception", ex.getClass().getSimpleName());
 
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
