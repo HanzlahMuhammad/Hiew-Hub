@@ -23,7 +23,6 @@ public class Job {
     private String company;
     private String location;
 
-    // 🔥 Missing fields (add these)
     private Long employerId;
 
     private Double salaryMin;
@@ -35,5 +34,5 @@ public class Job {
     private LocalDate postedDate;
     private LocalDate expiryDate;
 
-    private boolean active;
+    private Boolean active;
 }
