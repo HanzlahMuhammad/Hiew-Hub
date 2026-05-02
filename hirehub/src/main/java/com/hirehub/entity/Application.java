@@ -1,25 +1,32 @@
-package com.hirehub.dto;
+package com.hirehub.entity;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-public class ApplicationResponseDTO {
+@Entity
+@Table(name = "applications",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"candidate_id", "job_id"}))
+public class Application {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long jobId;
-    private String jobTitle;
     private Long candidateId;
-    private String status;
+    private Long jobId;
+    private Long employerId;
+    private String status;           // PENDING, ACCEPTED, REJECTED
     private LocalDateTime appliedDate;
     private String coverLetter;
 
-    // Getters and setters
+    public Application() {}
+
+    // Getters and setters (generate in IntelliJ via Alt+Insert)
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-    public Long getJobId() { return jobId; }
-    public void setJobId(Long jobId) { this.jobId = jobId; }
-    public String getJobTitle() { return jobTitle; }
-    public void setJobTitle(String jobTitle) { this.jobTitle = jobTitle; }
     public Long getCandidateId() { return candidateId; }
     public void setCandidateId(Long candidateId) { this.candidateId = candidateId; }
+    public Long getJobId() { return jobId; }
+    public void setJobId(Long jobId) { this.jobId = jobId; }
+    public Long getEmployerId() { return employerId; }
+    public void setEmployerId(Long employerId) { this.employerId = employerId; }
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
     public LocalDateTime getAppliedDate() { return appliedDate; }
