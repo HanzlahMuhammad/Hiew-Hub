@@ -1,6 +1,5 @@
 package com.hirehub.controller.auth;
 
-import com.hirehub.dto.ApiResponse;
 import com.hirehub.dto.AuthResponse;
 import com.hirehub.dto.LoginRequest;
 import com.hirehub.dto.RegisterRequest;
@@ -16,9 +15,8 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/register")
-    public ApiResponse register(@RequestBody RegisterRequest request) {
-        authService.register(request);
-        return new ApiResponse("User registered successfully");
+    public String register(@RequestBody RegisterRequest request) {
+        return authService.register(request);
     }
 
     @PostMapping("/login")
