@@ -49,4 +49,9 @@ public class JobController {
     public ResponseEntity<Job> getJobById(@PathVariable Long id) {
         return ResponseEntity.ok(jobService.getJobById(id));
     }
+
+    @GetMapping
+    public ResponseEntity<?> getAllJobs() {
+        return ResponseEntity.ok(jobService.getAllJobs());
+    }
 }
